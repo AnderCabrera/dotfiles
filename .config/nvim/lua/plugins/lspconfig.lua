@@ -14,6 +14,7 @@ return {
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+
 			callback = function(event)
 				-- Mappings
 				local map = function(m, l, r, desc, opts)
@@ -41,7 +42,8 @@ return {
 
 				-- stylua: ignore start
 				map("n", "<space>ds", function() require("telescope.builtin").lsp_document_symbols() end, "document symbols")
-				map("n", "<space>ws", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, "workspace symbols")
+				map("n", "<space>ws", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end,
+					"workspace symbols")
 				-- stylua: ignore end
 
 				-- lesser used lsp functionality
@@ -53,6 +55,22 @@ return {
 				end, "list workspace folders")
 			end,
 		})
+
+		-- Signs
+		local function callSigns()
+			local signs = {
+				Error = "",
+				Warn = "",
+				Hint = "󰌶",
+			}
+
+			for type, icon in pairs(signs) do
+				local hl = "DiagnosticSign" .. type
+				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+			end
+		end
+
+		callSigns()
 
 		local lspconf = require("lspconfig")
 

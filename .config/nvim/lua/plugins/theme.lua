@@ -1,5 +1,13 @@
 return {
-	"joshdick/onedark.vim",
+	{
+		"navarasu/onedark.nvim",
+		config = function()
+			require("onedark").setup({
+				style = "darker",
+				transparent = true,
+			})
+		end
+	},
 	"folke/tokyonight.nvim",
 	"ellisonleao/gruvbox.nvim",
 	"shaunsingh/nord.nvim",

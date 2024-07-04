@@ -1,8 +1,3 @@
--- return {
--- 	"vim-airline/vim-airline",
--- 	dependencies = { "vim-airline/vim-airline-themes", "tpope/vim-fugitive" },
--- }
-
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -10,7 +5,7 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = "gruvbox",
+				theme = "onedark",
 				component_separators = { "" }, -- { left = "|", right = "|" },
 				section_separators = { "" }, -- { left = "", right = "" },
 			},

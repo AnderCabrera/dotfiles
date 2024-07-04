@@ -1,28 +1,25 @@
 colors:
   bright:
-    black: '0x585858'
-    blue: '0x7cafc2'
-    cyan: '0x86c1b9'
-    green: '0xa1b56c'
-    magenta: '0xba8baf'
-    red: '0xab4642'
-    white: '0xf8f8f8'
-    yellow: '0xf7ca88'
-  cursor:
-    cursor: '0xd8d8d8'
-    text: '0xd8d8d8'
+    black: '#282a40'
+    blue: '#a3c5ff'
+    cyan: '#98fffd'
+    green: '#e0ffad'
+    magenta: '#d6afed'
+    red: '#eb7f84'
+    white: '#d1e5ed'
+    yellow: '#ffee7e'
   normal:
-    black: '0x181818'
-    blue: '0x7cafc2'
-    cyan: '0x86c1b9'
-    green: '0xa1b56c'
-    magenta: '0xba8baf'
-    red: '0xab4642'
-    white: '0xd8d8d8'
-    yellow: '0xf7ca88'
+    black: '#181a29'
+    blue: '#93bbff'
+    cyan: '#98e4ff'
+    green: '#cdea9f'
+    magenta: '#d3a7ee'
+    red: '#F07178'
+    white: '#bfd5de'
+    yellow: '#ffd47e'
   primary:
-    background: '0x181818'
-    foreground: '0xd8d8d8'
+    background: '#0f101a'
+    foreground: '#c5c9de'
 font:
   bold:
     family: mononoki Nerd Font
@@ -32,7 +29,7 @@ font:
     family: mononoki Nerd Font
   size: 11.0
 window:
-  opacity: 0.95
+  opacity: 1.0
   padding:
     x: 5
     y: 0
