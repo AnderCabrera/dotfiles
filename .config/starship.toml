@@ -1,0 +1,21 @@
+# ~/.config/starship.toml
+
+[username]
+style_user = "green"
+# format = "[$user]($style)@"
+format = "[ander]($style)@"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+disabled = false
+style = "cyan"
+# format = "[$hostname]($style) "
+format = "[cabrera]($style) at "
+
+[localip]
+ssh_only = false
+disabled = false 
+style = "bold yellow"
+format = "[$localipv4]($style) "
