@@ -91,7 +91,7 @@ return {
 		lspconf.html.setup({})
 		lspconf.ast_grep.setup({
 			cmd = { "ast-grep", "--lsp" },
-			filetypes = { "lua" },
+			filetypes = { "lua", "typescript", "javascript", "html", "css", "scss", "vue", "tsx", "jsx" },
 			root_dir = lspconf.util.root_pattern(".git"),
 		})
 		lspconf.jsonls.setup({

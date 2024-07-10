@@ -8,9 +8,9 @@ return {
 	config = function()
 		require("barbar").setup({
 			animation = true,
-			sidebar_filetypes = {
-				NvimTree = true,
-			},
+			-- sidebar_filetypes = {
+			-- 	NvimTree = false,
+			-- },
 			icons = {
 				button = "",
 				modified = { button = "[+]" },

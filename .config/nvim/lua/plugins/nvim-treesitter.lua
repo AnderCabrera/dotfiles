@@ -17,7 +17,7 @@ return {
 			configs.setup({
 				ensure_installed = { "c", "vim", "vimdoc", "query", "javascript", "typescript", "lua", "html" },
 				sync_install = false,
-				highlight = { enable = true, disable = { "html" } },
+				highlight = { enable = true, disable = { "" } },
 				indent = { enable = false },
 			})
 		end,
