@@ -27,7 +27,7 @@ map("n", "<leader>bd", ":BufferClose<CR>")
 
 -- Replace word or text
 map("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-map("v", "<leader>r", "\"hy:%s/<C-r>h/<C-r>h/g<left><left>")
+map("v", "<leader>r", '"hy:%s/<C-r>h/<C-r>h/g<left><left>')
 
 -- Move selected lines up and down
 map("v", "<C-M-j>", ":m '>+1<CR>gv=gv")
@@ -56,3 +56,5 @@ map("n", "<leader>fb", builtin.buffers, {})
 map("n", "<leader>fh", builtin.help_tags, {})
 
 map("n", "<C-k>t", builtin.colorscheme, {})
+
+map("n", "<C-m>w", require("auto-session.session-lens").search_session)
