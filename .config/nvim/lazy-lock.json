@@ -32,6 +32,7 @@
   "onedark.nvim": { "branch": "master", "commit": "fae34f7c635797f4bf62fb00e7d0516efa8abe37" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
   "presence.nvim": { "branch": "main", "commit": "87c857a56b7703f976d3a5ef15967d80508df6e6" },
+  "tailwind-tools.nvim": { "branch": "master", "commit": "ce3ab3fd6ad05d08fbfc1ef84b3f5312cd05ee6d" },
   "telescope.nvim": { "branch": "master", "commit": "6312868392331c9c0f22725041f1ec2bef57c751" },
   "todo-comments.nvim": { "branch": "main", "commit": "d61567557e2ff5c548c74e96b2d9f8d33e5fcb34" },
   "tokyonight.nvim": { "branch": "main", "commit": "b357de8d1d8d0d90be0d7f7750c7aa7eb7f4b020" },

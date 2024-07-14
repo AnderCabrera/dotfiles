@@ -113,11 +113,11 @@ return {
 			filetypes = { "c", "cpp" },
 			-- root_dir = lspconf.util.root_pattern(".git"),
 		})
-		lspconf.tailwindcss.setup({
-			cmd = { "tailwindcss-language-server", "--stdio" },
-			filetypes = { "html", "css", "scss", "javascript", "typescript", "vue", "tsx", "jsx" },
-			root_dir = lspconf.util.root_pattern("tailwind.config.js"),
-		})
+		-- lspconf.tailwindcss.setup({
+		-- 	cmd = { "tailwindcss-language-server", "--stdio" },
+		-- 	filetypes = { "html", "css", "scss", "javascript", "typescript", "vue", "tsx", "jsx", "react" },
+		-- 	root_dir = lspconf.util.root_pattern("tailwind.config.js"),
+		-- })
 		lspconf.pyright.setup({
 			cmd = { "pyright-langserver", "--stdio" },
 			filetypes = { "python" },
