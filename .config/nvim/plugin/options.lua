@@ -43,3 +43,6 @@ vim.opt.incsearch = true
 
 vim.g.barbar_auto_setup = false
 
+-- nvim-cmp height popup
+set.pumheight = 15
+

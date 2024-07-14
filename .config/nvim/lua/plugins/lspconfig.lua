@@ -82,47 +82,64 @@ return {
 		callSigns()
 
 		local lspconf = require("lspconfig")
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+		lspconf.html.setup({
+			capabilities = capabilities,
+		})
+
+		lspconf.emmet_language_server.setup({})
 
 		lspconf.tsserver.setup({
 			cmd = { "typescript-language-server", "--stdio" },
 			name = "tsserver",
 			root_dir = lspconf.util.root_pattern("package.json"),
-			capabilities = vim.lsp.protocol.make_client_capabilities(),
+			capabilities = capabilities,
 		})
 
 		lspconf.lua_ls.setup({})
+
+		local project_library_path = vim.fn.getcwd() .. "/bin"
+		local cmd = {
+			"ngserver",
+			"--stdio",
+			"--tsProbeLocations",
+			project_library_path,
+			"--ngProbeLocations",
+			project_library_path,
+		}
 		lspconf.angularls.setup({
-			cmd = { "angular-language-server", "--stdio" },
-			filetypes = { "typescript", "html" },
-			root_dir = lspconf.util.root_pattern("angular.json"),
+			cmd = cmd,
+			on_new_config = function(new_config)
+				new_config.cmd = cmd
+			end,
+			capabilities = capabilities,
 		})
-		lspconf.emmet_language_server.setup({})
-		lspconf.html.setup({})
-		lspconf.ast_grep.setup({
-			cmd = { "ast-grep", "--lsp" },
-			filetypes = { "lua", "typescript", "javascript", "html", "css", "scss", "vue", "tsx", "jsx" },
-			root_dir = lspconf.util.root_pattern(".git"),
-		})
+
 		lspconf.jsonls.setup({
 			-- cmd = { "vscode-json-languageserver", "--stdio" },
 			filetypes = { "json" },
 			-- root_dir = lspconf.util.root_pattern(".git"),
 		})
+
 		lspconf.clangd.setup({
 			cmd = { "clangd", "--background-index" },
 			filetypes = { "c", "cpp" },
 			-- root_dir = lspconf.util.root_pattern(".git"),
 		})
-		-- lspconf.tailwindcss.setup({
-		-- 	cmd = { "tailwindcss-language-server", "--stdio" },
-		-- 	filetypes = { "html", "css", "scss", "javascript", "typescript", "vue", "tsx", "jsx", "react" },
-		-- 	root_dir = lspconf.util.root_pattern("tailwind.config.js"),
-		-- })
+
+		lspconf.tailwindcss.setup({
+			cmd = { "tailwindcss-language-server", "--stdio" },
+			root_dir = lspconf.util.root_pattern("tailwind.config.js"),
+		})
+
 		lspconf.pyright.setup({
 			cmd = { "pyright-langserver", "--stdio" },
 			filetypes = { "python" },
 			root_dir = lspconf.util.root_pattern(".git"),
 		})
+
 		lspconf.arduino_language_server.setup({
 			cmd = { "arduino-language-server", "--stdio" },
 			filetypes = { "ino" },

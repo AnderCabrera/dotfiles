@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
 	"hrsh7th/cmp-nvim-lsp",
 	event = "InsertEnter",
@@ -14,10 +15,38 @@ return {
 
 		"hrsh7th/cmp-vsnip",
 		"hrsh7th/vim-vsnip",
+		"onsails/lspkind.nvim",
 	},
 
 	config = function()
 		local cmp = require("cmp")
+		local kind_icons = {
+			Text = "",
+			Method = "󰆧",
+			Function = "󰊕",
+			Constructor = "",
+			Field = "󰇽",
+			Variable = "󰂡",
+			Class = "󰠱",
+			Interface = "",
+			Module = "",
+			Property = "󰜢",
+			Unit = "",
+			Value = "󰎠",
+			Enum = "",
+			Keyword = "󰌋",
+			Snippet = "",
+			Color = "󰏘",
+			File = "󰈙",
+			Reference = "",
+			Folder = "󰉋",
+			EnumMember = "",
+			Constant = "󰏿",
+			Struct = "",
+			Event = "",
+			Operator = "󰆕",
+			TypeParameter = "󰅲",
+		}
 
 		cmp.setup({
 			snippet = {
@@ -32,8 +61,8 @@ return {
 			},
 
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				completion = cmp.config.window,
+				documentation = cmp.config.window,
 			},
 
 			mapping = cmp.mapping.preset.insert({
@@ -65,11 +94,68 @@ return {
 				matching = { disallow_symbol_nonprefix_matching = false },
 			}),
 
-			-- Set up lspconfig.
-			-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-			-- require('lspconfig')['lua_ls'].setup {
-			-- 	capabilities =  require('cmp_nvim_lsp').default_capabilities()
-			-- }
+			formatting = {
+				fields = { "kind", "abbr", "menu" },
+				format = function(entry, vim_item)
+					-- Customization for Pmenu
+					vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#282C34", fg = "NONE" })
+					vim.api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#22252A" })
+					-- gray
+					vim.api.nvim_set_hl(
+						0,
+						"CmpItemAbbrDeprecated",
+						{ bg = "NONE", strikethrough = true, fg = "#808080" }
+					)
+					-- blue
+					vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { bg = "NONE", fg = "#569CD6" })
+					vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { link = "CmpIntemAbbrMatch" })
+					-- light blue
+					vim.api.nvim_set_hl(0, "CmpItemKindVariable", { bg = "NONE", fg = "#9CDCFE" })
+					vim.api.nvim_set_hl(0, "CmpItemKindInterface", { link = "CmpItemKindVariable" })
+					vim.api.nvim_set_hl(0, "CmpItemKindText", { link = "CmpItemKindVariable" })
+					-- pink
+					vim.api.nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#C586C0" })
+					vim.api.nvim_set_hl(0, "CmpItemKindMethod", { link = "CmpItemKindFunction" })
+					-- front
+					vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { bg = "NONE", fg = "#D4D4D4" })
+					vim.api.nvim_set_hl(0, "CmpItemKindProperty", { link = "CmpItemKindKeyword" })
+					vim.api.nvim_set_hl(0, "CmpItemKindUnit", { link = "CmpItemKindKeyword" })
+
+					local lspkind_ok, lspkind = pcall(require, "lspkind")
+
+					if not lspkind_ok then
+						local icon = kind_icons[vim_item.kind]
+
+						vim_item.menu = vim_item.kind
+						vim_item.kind = (icon or "")
+
+						-- Source
+						-- vim_item.menu = ({
+						-- 	buffer = "[Buffer]",
+						-- 	nvim_lsp = "[LSP]",
+						-- 	luasnip = "[LuaSnip]",
+						-- 	nvim_lua = "[Lua]",
+						-- 	latex_symbols = "[LaTeX]",
+						-- })[entry.source.name]
+
+						return vim_item
+					else
+						-- From lspkind
+						local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+						local strings = vim.split(kind.kind, "%s", { trimempty = true })
+						kind.kind = " " .. (strings[1] or "") .. " "
+						kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+						return kind
+					end
+				end,
+			},
 		})
+
+		-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		-- -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+		-- require("lspconfig")["html"].setup({
+		-- 	capabilities = capabilities,
+		-- })
 	end,
 }

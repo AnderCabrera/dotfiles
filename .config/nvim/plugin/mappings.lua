@@ -1,7 +1,5 @@
-local map = function(m, l, r, desc, opts)
+local map = function(m, l, r, opts)
 	opts = opts or { noremap = true, silent = true }
-	desc = desc or nil
-	opts.desc = desc
 	vim.keymap.set(m, l, r, opts)
 end
 
