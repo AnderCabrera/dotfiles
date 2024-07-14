@@ -6,7 +6,16 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 
-		{ "j-hui/fidget.nvim", opts = {} },
+		{
+			"j-hui/fidget.nvim",
+			opts = {
+				integration = {
+					["nvim-tree"] = {
+						enable = true,
+					},
+				},
+			},
+		},
 
 		{ "folke/neodev.nvim", opts = {} },
 	},

@@ -28,12 +28,23 @@ function colorScheme(color)
 		set_color("@lsp.type.builtinType", { link = "@type" })
 	end
 
-
 	vim.cmd.colorscheme(color)
-	vim.cmd("echo 'Today is ' . strftime('%A') . ', ' . strftime('%B %d') . ', ' . strftime('%Y')")
+
 	-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
 colorScheme("onedark")
 
+local function testingAutocmd()
+	vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+		pattern = "*.js",
+		callback = function(ev)
+			local fidget = require("fidget")
+
+			fidget.notify(vim.inspect(ev), nil, { annote = "MY NOTE", key = "foobar" })
+		end,
+	})
+end
+
+testingAutocmd()

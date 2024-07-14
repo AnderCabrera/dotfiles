@@ -27,7 +27,7 @@ return {
 		dashboard.section.header.opts.hl = "Normal"
 
 		dashboard.section.buttons.val = {
-			dashboard.button("n", "  New file", ":enew <cr>"),
+			dashboard.button("i", "  New file", ":enew <cr>"),
 			dashboard.button("f", "  Find file", ":Telescope find_files<cr>"),
 			dashboard.button("w", "  Workspaces", require("auto-session.session-lens").search_session),
 			dashboard.button("r", "  Recent", ":Telescope oldfiles<cr>"),
