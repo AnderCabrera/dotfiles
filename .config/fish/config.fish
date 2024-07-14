@@ -19,3 +19,4 @@ alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 # end
     
 starship init fish | source
+

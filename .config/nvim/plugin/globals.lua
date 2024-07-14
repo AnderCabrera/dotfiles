@@ -42,7 +42,7 @@ local function testingAutocmd()
 		callback = function(ev)
 			local fidget = require("fidget")
 
-			fidget.notify(vim.inspect(ev), nil, { annote = "MY NOTE", key = "foobar" })
+			fidget.notify("Javascript", nil, { annote = ":)", key = "foobar" })
 		end,
 	})
 end

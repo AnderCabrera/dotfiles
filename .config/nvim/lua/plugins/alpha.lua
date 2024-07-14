@@ -29,7 +29,8 @@ return {
 		dashboard.section.buttons.val = {
 			dashboard.button("i", "  New file", ":enew <cr>"),
 			dashboard.button("f", "  Find file", ":Telescope find_files<cr>"),
-			dashboard.button("w", "  Workspaces", require("auto-session.session-lens").search_session),
+			dashboard.button("w", "  Workspaces", ":Telescope workspaces<cr>"),
+			dashboard.button("c", "  Sessions", require("auto-session.session-lens").search_session),
 			dashboard.button("r", "  Recent", ":Telescope oldfiles<cr>"),
 			dashboard.button("u", "  Update Plugins", ":Lazy update<cr>"),
 			dashboard.button("s", "  Settings", ":e $MYVIMRC | :cd %:p:h<cr>"),
