@@ -21,6 +21,9 @@ return {
 	},
 
 	config = function()
+		-- neodev
+		require("neodev").setup({})
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 
@@ -98,7 +101,15 @@ return {
 			capabilities = capabilities,
 		})
 
-		lspconf.lua_ls.setup({})
+		lspconf.lua_ls.setup({
+			settings = {
+				Lua = {
+					completion = {
+						callSnippet = "Replace",
+					},
+				},
+			},
+		})
 
 		local project_library_path = vim.fn.getcwd() .. "/bin"
 		local cmd = {
