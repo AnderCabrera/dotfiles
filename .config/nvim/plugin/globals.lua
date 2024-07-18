@@ -30,11 +30,11 @@ function colorScheme(color)
 
 	vim.cmd.colorscheme(color)
 
-	-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
-colorScheme("tokyonight-night")
+colorScheme("onedark")
 
 local function testingAutocmd()
 	vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {

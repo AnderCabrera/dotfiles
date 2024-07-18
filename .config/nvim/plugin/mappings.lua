@@ -55,4 +55,5 @@ map("n", "<leader>fh", builtin.help_tags, {})
 map("n", "<C-k>t", builtin.colorscheme, {})
 map("n", "<C-m>s", require("auto-session.session-lens").search_session)
 map("n", "<C-m>w", ":Telescope workspaces<CR>", {})
+map("n", "<C-m>t", ":Telescope telescope-tabs list_tabs<CR>", {})
 
