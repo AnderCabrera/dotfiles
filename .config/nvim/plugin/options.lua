@@ -30,8 +30,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.wrap = false
 
 -- Vertical markers
--- vim.opt.signcolumn = "yes"
--- vim.opt.colorcolumn = "80"
+vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = "80"
 
 -- Don't load netrw because we use nvim-tree
 vim.g.load_netrw = 1
@@ -41,7 +41,7 @@ vim.g.load_netrwPlugin = 1
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
-vim.g.barbar_auto_setup = false
+-- vim.g.barbar_auto_setup = false
 
 -- nvim-cmp height popup
 set.pumheight = 15

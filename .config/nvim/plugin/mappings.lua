@@ -19,9 +19,9 @@ map("v", "<", "<gv")
 map("n", "<leader>c", vim.cmd.NvimTreeToggle)
 
 -- Buffer
-map("n", "<leader>bn", ":BufferNext<CR>")
-map("n", "<leader>bp", ":BufferPrevious<CR>")
-map("n", "<leader>bd", ":BufferClose<CR>")
+map("n", "<leader>bn", ":bnext<CR>")
+map("n", "<leader>bp", ":bprevious<CR>")
+map("n", "<leader>bd", ":bdelete<CR>")
 
 -- Replace word or text
 map("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -45,6 +45,9 @@ map("n", "<M-k>", ":horizontal resize +5<CR>")
 -- Stay in the middle while half page scrolling
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
+
+-- Lazygit
+map("n", "<leader>lg", ":LazyGit<CR>")
 
 -- telescope
 local builtin = require("telescope.builtin")
