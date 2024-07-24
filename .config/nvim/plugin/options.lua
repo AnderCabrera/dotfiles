@@ -13,7 +13,7 @@ set.softtabstop = 2
 set.shiftwidth = 2
 
 set.encoding = "UTF-8"
-set.mouse = "a"
+vim.o.mouse = 'a'
 set.clipboard = "unnamedplus"
 
 -- optionally enable 24-bit colour
@@ -46,3 +46,4 @@ vim.opt.incsearch = true
 -- nvim-cmp height popup
 set.pumheight = 15
 
+vim.o.splitright = true

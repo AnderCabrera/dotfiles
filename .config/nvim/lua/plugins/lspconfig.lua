@@ -25,7 +25,12 @@ return {
 				end
 
 				map("n", "gD", vim.lsp.buf.declaration, "go declaration")
-				map("n", "gd", vim.lsp.buf.definition, "go definition")
+				map("n", "gd", function()
+					-- open as vertical split
+					vim.cmd("vsp | lua vim.lsp.buf.definition()")
+					-- open as tabnew
+					-- vim.cmd("tab split | lua vim.lsp.buf.definition()")
+				end, "go definition")
 				map("n", "gr", vim.lsp.buf.references, "references")
 				map("n", "K", vim.lsp.buf.hover, "hover")
 				map("n", "gi", vim.lsp.buf.implementation, "go implementation")
