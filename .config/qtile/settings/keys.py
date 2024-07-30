@@ -91,4 +91,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([], "XF86AudioNext", lazy.spawn("playerctl next")),
     ([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
     ([], "XF86AudioStop", lazy.spawn("playerctl stop")),
+
+    # Toggle mic
+    ([mod], "F9", lazy.spawn("amixer set Capture toggle")),
 ]]
