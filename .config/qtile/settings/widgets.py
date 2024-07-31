@@ -71,18 +71,19 @@ primary_widgets = [
 
     powerline('color4', 'dark'),
 
-    icon(bg="color4", text='󰂯 '), 
+    icon(bg="color4", text='󰂯 '),
 
     widget.Bluetooth(
         background=colors['color4'],
-        mouse_callbacks={'Button1': lambda: subprocess.Popen('blueman-manager', shell=True),}
+        mouse_callbacks={'Button1': lambda: subprocess.Popen('blueman-manager', shell=True),},
+        device_battery_format='{{battery}}%',
     ),
 
     powerline('color3', 'color4'),
 
     icon(bg="color3", text=' '),  # Icon: nf-fa-feed
 
-    widget.Net(**base(bg='color3'), interface='eno1'),
+    widget.Net(**base(bg='color3'), interface='wlp0s20f3'),
 
     powerline('color2', 'color3'),
 
@@ -115,7 +116,7 @@ secondary_widgets = [
     powerline('color2', 'color1'),
 
     icon(bg="color2", fontsize=17, text='󰃰 '),  # Icon: nf-mdi-calendar_clock
-    widget.Clock(**base(bg='color2'), format='%d/%m/%Y - %H:%M ',),
+    widget.Clock(**base(bg='color2'), format='%d/%m/%Y - %H:%M:%S ',),
 
     powerline('dark', 'color2'),
 ]
