@@ -29,7 +29,7 @@ def powerline(fg="light", bg="dark"):
     return widget.TextBox(
         **base(fg, bg),
         text="",  # Icon: nf-oct-triangle_left
-        fontsize=40,
+        fontsize=35,
         padding=-1
     )
 
@@ -63,6 +63,37 @@ def workspaces():
         separator(),
     ]
 
+# NOTE: Custom functions
+
+
+def get_mic_status():
+    result = subprocess.run(
+        ['amixer', 'get', 'Capture'], stdout=subprocess.PIPE)
+    output = result.stdout.decode('utf-8')
+    if '[off]' in output:
+        return '󰍭'
+    else:
+        return '󰍬'
+
+
+def get_network_name():
+    try:
+        # Ejecuta el comando para obtener los nombres de las conexiones activas con sus tipos
+        result = subprocess.run(['nmcli', '-t', '-f', 'TYPE,NAME', 'connection',
+                                'show', '--active'], stdout=subprocess.PIPE, check=True)
+        output = result.stdout.decode('utf-8').strip()
+
+        # Filtra la salida para obtener solo el nombre de la conexión Wi-Fi
+        for line in output.splitlines():
+            connection_type, name = line.split(
+                ':', 1)  # Separar solo en el primer ':'
+            if connection_type == '802-11-wireless':
+                return name
+
+        return 'None'
+    except subprocess.CalledProcessError:
+        return 'None'
+
 
 primary_widgets = [
     *workspaces(),
@@ -71,19 +102,33 @@ primary_widgets = [
 
     powerline('color4', 'dark'),
 
-    icon(bg="color4", text='󰂯 '),
+    # icon(bg="color4", text='󰂯 '),
 
-    widget.Bluetooth(
-        background=colors['color4'],
-        mouse_callbacks={'Button1': lambda: subprocess.Popen('blueman-manager', shell=True),},
-        device_battery_format='{{battery}}%',
+    widget.TextBox(
+        **base(fg='light', bg='color4'),
+        fontsize=16,
+        text='󰂯',
+        padding=3,
+        mouse_callbacks={'Button1': lambda: subprocess.Popen(
+            'blueman-manager', shell=True), },
     ),
+
+    # widget.Bluetooth(
+    #     background=colors['color4'],
+    #     mouse_callbacks={'Button1': lambda: subprocess.Popen(
+    #         'blueman-manager', shell=True), },
+    # ),
 
     powerline('color3', 'color4'),
 
     icon(bg="color3", text=' '),  # Icon: nf-fa-feed
 
-    widget.Net(**base(bg='color3'), interface='wlp0s20f3'),
+    # widget.Net(**base(bg='color3'), interface='wlp0s20f3'),
+    widget.GenPollText(
+        **base(bg='color3'),
+        func=get_network_name,
+        update_interval=10,  # Actualiza cada 10 segundos
+    ),
 
     powerline('color2', 'color3'),
 
@@ -100,6 +145,21 @@ primary_widgets = [
     powerline('dark', 'color1'),
 
     widget.Systray(background=colors['dark'], padding=5),
+
+    widget.Volume(**base(bg='color1'), volume_app="pavucontrol"),
+
+    separator(),
+
+    widget.GenPollText(
+        **base(bg='dark'),
+        func=get_mic_status,
+        update_interval=0,
+        mouse_callbacks={'Button1': lambda: subprocess.Popen(
+            'amixer set Capture toggle', shell=True)},
+    ),
+
+    separator(),
+
 ]
 
 secondary_widgets = [
