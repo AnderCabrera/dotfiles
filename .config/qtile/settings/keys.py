@@ -2,6 +2,7 @@
 import os
 from libqtile.config import Key
 from libqtile.lazy import lazy
+from .custom_functions import toggle_mic_status, window_to_previous_screen, window_to_next_screen
 
 mod = "mod4"
 alt = "mod1"
@@ -75,8 +76,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "r", lazy.spawn("redshift -x")),
 
     # Screenshot
-    ([mod], "s", lazy.spawn(f"scrot -e 'xclip -selection clipboard -t image/png -i $f' {screenshots_dir}/screenshot_%b%d%Y-%H%M%S.png")),
-    ([mod, 'shift'], "s", lazy.spawn(f"scrot -s -e 'xclip -selection clipboard -t image/png -i $f' {screenshots_dir}/screenshot_%b%d%Y-%H%M%S.png")),
+    ([mod], "s", lazy.spawn(
+        f"scrot -e 'xclip -selection clipboard -t image/png -i $f' {screenshots_dir}/screenshot_%b%d%Y-%H%M%S.png")),
+    ([mod, 'shift'], "s", lazy.spawn(
+        f"scrot -s -e 'xclip -selection clipboard -t image/png -i $f' {screenshots_dir}/screenshot_%b%d%Y-%H%M%S.png")),
 
     # ------------ Hardware Configs ------------
 
@@ -101,30 +104,19 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
     ([], "XF86AudioStop", lazy.spawn("playerctl stop")),
 
-    # Toggle mic
-    ([mod], "F9", lazy.spawn("amixer set Capture toggle")),
+    # Get and toggle mic status
+    ([mod], "F9", lazy.function(toggle_mic_status)),
+
+    # Lock screen
+    ([mod], "F11", lazy.spawn("betterlockscreen -l")),
+
+    # Suspend
+    ([mod], "F12", lazy.spawn("systemctl suspend")),
+
+
 ]]
 
 # Move to next screen
-
-
-def window_to_previous_screen(qtile, switch_group=False, switch_screen=False):
-    i = qtile.screens.index(qtile.current_screen)
-    if i != 0:
-        group = qtile.screens[i - 1].group.name
-        qtile.current_window.togroup(group, switch_group=switch_group)
-        if switch_screen == True:
-            qtile.cmd_to_screen(i - 1)
-
-
-def window_to_next_screen(qtile, switch_group=False, switch_screen=False):
-    i = qtile.screens.index(qtile.current_screen)
-    if i + 1 != len(qtile.screens):
-        group = qtile.screens[i + 1].group.name
-        qtile.current_window.togroup(group, switch_group=switch_group)
-        if switch_screen == True:
-            qtile.cmd_to_screen(i + 1)
-
 
 keys.extend([
     # MOVE WINDOW TO NEXT SCREEN

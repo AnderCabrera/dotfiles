@@ -1,9 +1,9 @@
 import subprocess
 from libqtile import widget
 from .theme import colors
+from .custom_functions import get_network_name, get_mic_status
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
-
 
 def base(fg='text', bg='dark'):
     return {
@@ -63,38 +63,6 @@ def workspaces():
         separator(),
     ]
 
-# NOTE: Custom functions
-
-
-def get_mic_status():
-    result = subprocess.run(
-        ['amixer', 'get', 'Capture'], stdout=subprocess.PIPE)
-    output = result.stdout.decode('utf-8')
-    if '[off]' in output:
-        return '󰍭'
-    else:
-        return '󰍬'
-
-
-def get_network_name():
-    try:
-        # Ejecuta el comando para obtener los nombres de las conexiones activas con sus tipos
-        result = subprocess.run(['nmcli', '-t', '-f', 'TYPE,NAME', 'connection',
-                                'show', '--active'], stdout=subprocess.PIPE, check=True)
-        output = result.stdout.decode('utf-8').strip()
-
-        # Filtra la salida para obtener solo el nombre de la conexión Wi-Fi
-        for line in output.splitlines():
-            connection_type, name = line.split(
-                ':', 1)  # Separar solo en el primer ':'
-            if connection_type == '802-11-wireless':
-                return name
-
-        return 'None'
-    except subprocess.CalledProcessError:
-        return 'None'
-
-
 primary_widgets = [
     *workspaces(),
 
@@ -105,7 +73,7 @@ primary_widgets = [
     # icon(bg="color4", text='󰂯 '),
 
     widget.TextBox(
-        **base(fg='light', bg='color4'),
+        **base(fg='text', bg='color4'),
         fontsize=16,
         text='󰂯',
         padding=3,
@@ -127,7 +95,7 @@ primary_widgets = [
     widget.GenPollText(
         **base(bg='color3'),
         func=get_network_name,
-        update_interval=10,  # Actualiza cada 10 segundos
+        update_interval=10, 
     ),
 
     powerline('color2', 'color3'),
@@ -146,20 +114,17 @@ primary_widgets = [
 
     widget.Systray(background=colors['dark'], padding=5),
 
-    widget.Volume(**base(bg='color1'), volume_app="pavucontrol"),
+    widget.Volume(volume_app="pavucontrol", **base(fg='light', bg='dark')),
 
     separator(),
 
-    widget.GenPollText(
-        **base(bg='dark'),
-        func=get_mic_status,
-        update_interval=0,
-        mouse_callbacks={'Button1': lambda: subprocess.Popen(
-            'amixer set Capture toggle', shell=True)},
-    ),
-
-    separator(),
-
+    # widget.GenPollText(
+    #     **base(bg='dark'),
+    #     func=get_mic_status,
+    #     update_interval=1,
+    #     mouse_callbacks={'Button1': lambda: subprocess.Popen(
+    #         'amixer set Capture toggle', shell=True)},
+    # ),
 ]
 
 secondary_widgets = [
