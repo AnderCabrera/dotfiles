@@ -17,7 +17,7 @@ vim.o.mouse = 'a'
 set.clipboard = "unnamedplus"
 
 -- optionally enable 24-bit colour
-set.termguicolors = true
+vim.opt.termguicolors = true
 
 -- no show mode
 set.showmode = false
