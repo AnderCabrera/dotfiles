@@ -14,7 +14,7 @@ return {
       current_line_blame_opts = {
         virt_text = true,
         virt_text_pos = "eol", -- Mostrar el blame al final de la línea
-        delay = 0,         -- Retraso en ms antes de mostrar el blame
+        delay = 0,             -- Retraso en ms antes de mostrar el blame
         ignore_whitespace = false,
       },
     })

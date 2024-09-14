@@ -5,12 +5,12 @@ return {
   config = function()
     local bufferline = require("bufferline")
 
-    -- bufferline.setup({
-    --   options = {
-    --     mode = "tabs",
-    --     style_preset = bufferline.style_preset.default,
-    --     numbers = "none",
-    --   },
-    -- })
+    bufferline.setup({
+      options = {
+        mode = "tabs",
+        style_preset = bufferline.style_preset.default,
+        numbers = "none",
+      },
+    })
   end,
 }

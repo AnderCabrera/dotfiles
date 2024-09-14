@@ -49,6 +49,12 @@ map("n", "<C-u>", "<C-u>zz")
 -- Lazygit
 map("n", "<leader>lg", ":LazyGit<CR>")
 
+-- Git fugitive
+map("n", "<leader>gs", ":G<CR>")
+
+-- Undo tree
+map("n", "<leader>ut", ":UndotreeToggle<CR>")
+
 -- telescope
 local builtin = require("telescope.builtin")
 map("n", "<leader>ff", builtin.find_files, {})
