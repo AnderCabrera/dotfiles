@@ -1,0 +1,27 @@
+colors:
+  normal:
+    black: '#1e2127'
+    blue: '#61afef'
+    cyan: '#56b6c2'
+    green: '#98c379'
+    magenta: '#c678dd'
+    red: '#ffffff'
+    white: '#e6efff'
+    yellow: '#d19a66'
+  primary:
+    background: '#1e2127'
+    bright_foreground: '#e6efff'
+    foreground: '#abb2bf'
+font:
+  bold:
+    family: mononoki Nerd Font
+  italic:
+    family: mononoki Nerd Font
+  normal:
+    family: mononoki Nerd Font
+  size: 10.0
+window:
+  opacity: 0.9
+  padding:
+    x: 5
+    y: 5

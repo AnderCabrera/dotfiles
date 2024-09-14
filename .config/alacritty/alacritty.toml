@@ -1,0 +1,33 @@
+[colors.normal]
+black = "#1e2127"
+blue = "#61afef"
+cyan = "#56b6c2"
+green = "#98c379"
+magenta = "#c678dd"
+red = "#ffffff"
+white = "#e6efff"
+yellow = "#d19a66"
+
+[colors.primary]
+background = "#1e2127"
+bright_foreground = "#e6efff"
+foreground = "#abb2bf"
+
+[font]
+size = 10.0
+
+[font.bold]
+family = "mononoki Nerd Font"
+
+[font.italic]
+family = "mononoki Nerd Font"
+
+[font.normal]
+family = "mononoki Nerd Font"
+
+[window]
+opacity = 0.9
+
+[window.padding]
+x = 5
+y = 5

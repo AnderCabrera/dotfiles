@@ -1,0 +1,6 @@
+#Picom Toggle
+ctrl + alt + o
+    ~/.config/qtile/scripts/picom-toggle.sh
+
+super + shift + x
+    arcolinux-powermenu
