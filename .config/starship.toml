@@ -1,0 +1,31 @@
+# ~/.config/starship.toml
+
+add_newline = false
+
+[character]
+error_symbol = "[λ](fg:red)"
+success_symbol = "[λ](fg:purple)"
+vicmd_symbol = "[λ](fg:purple)"
+
+[username]
+style_user = "green"
+format = "[$user]($style)@"
+disabled = false
+show_always = true
+
+[directory]
+fish_style_pwd_dir_length = 1
+format = " in [$path]($style)[$read_only]($read_only_style) "
+truncation_length = 1
+
+[hostname]
+ssh_only = false
+disabled = false
+style = "cyan"
+format = "[$hostname]($style) "
+
+[localip]
+ssh_only = false
+disabled = false 
+style = "bold yellow"
+format = "[$localipv4]($style)"
