@@ -1,16 +1,16 @@
 return {
-	"akinsho/bufferline.nvim",
-	version = "*",
-	dependencies = "nvim-tree/nvim-web-devicons",
-	config = function()
-		local bufferline = require("bufferline")
+  "akinsho/bufferline.nvim",
+  version = "*",
+  dependencies = "nvim-tree/nvim-web-devicons",
+  config = function()
+    local bufferline = require("bufferline")
 
-		bufferline.setup({
-			options = {
-				mode = "tabs",
-				style_preset = bufferline.style_preset.default,
-				numbers = "none",
-			},
-		})
-	end,
+    -- bufferline.setup({
+    --   options = {
+    --     mode = "tabs",
+    --     style_preset = bufferline.style_preset.default,
+    --     numbers = "none",
+    --   },
+    -- })
+  end,
 }

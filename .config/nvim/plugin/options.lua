@@ -8,9 +8,9 @@ set.relativenumber = true
 vim.opt.smartindent = true
 
 -- Tabs
-set.tabstop = 2
-set.softtabstop = 2
+-- set.tabstop = 2
 set.shiftwidth = 2
+set.expandtab = true
 
 set.encoding = "UTF-8"
 vim.o.mouse = 'a'
