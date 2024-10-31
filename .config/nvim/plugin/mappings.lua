@@ -55,13 +55,8 @@ map("n", "<leader>gs", ":G<CR>")
 -- Undo tree
 map("n", "<leader>ut", ":UndotreeToggle<CR>")
 
--- telescope
-local builtin = require("telescope.builtin")
-map("n", "<leader>ff", builtin.find_files, {})
-map("n", "<leader>fg", builtin.live_grep, {})
-map("n", "<leader>fb", builtin.buffers, {})
-map("n", "<leader>fh", builtin.help_tags, {})
-map("n", "<C-k>t", builtin.colorscheme, {})
-map("n", "<C-m>s", require("auto-session.session-lens").search_session)
-map("n", "<C-m>w", ":Telescope workspaces<CR>", {})
-map("n", "<C-m>t", ":Telescope telescope-tabs list_tabs<CR>", {})
+-- Quickfix
+vim.keymap.set("n", "<C-k>", ":cnext<CR>zz")
+vim.keymap.set("n", "<C-j>", ":cprev<CR>zz")
+vim.keymap.set("n", "<leader>k", ":lnext<CR>zz")
+vim.keymap.set("n", "<leader>j", ":lprev<CR>zz")

@@ -83,7 +83,7 @@ return {
       end
     end
 
-    callSigns()
+    -- callSigns()
 
     local lspconf = require("lspconfig")
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -141,22 +141,25 @@ return {
       },
     })
 
-    local project_library_path = vim.fn.getcwd() .. "/bin"
-    local cmd = {
+    local default_node_modules = vim.fn.getcwd() .. "/node_modules"
+
+    local ngls_cmd = {
       "ngserver",
       "--stdio",
       "--tsProbeLocations",
-      project_library_path,
+      default_node_modules,
       "--ngProbeLocations",
-      project_library_path,
+      default_node_modules,
     }
-    lspconf.angularls.setup({
-      cmd = cmd,
-      on_new_config = function(new_config)
-        new_config.cmd = cmd
-      end,
-      capabilities = capabilities,
-    })
+
+    -- lspconf.angularls.setup({
+    --   cmd = ngls_cmd,
+    --   filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
+    --   root_dir = lspconf.util.root_pattern("angular.json", "tsconfig.json"),
+    --   on_new_config = function(new_config)
+    --     new_config.cmd = ngls_cmd
+    --   end,
+    -- })
 
     lspconf.jsonls.setup({
       -- cmd = { "vscode-json-languageserver", "--stdio" },
@@ -207,6 +210,21 @@ return {
           },
         }
       }
+    })
+
+    lspconf.intelephense.setup({
+      cmd = { "intelephense", "--stdio" },
+      filetypes = { "php" },
+      root_dir = lspconf.util.root_pattern("composer.json", ".git"),
+    })
+
+    lspconf.sqls.setup({
+      on_attach = function(client, bufnr)
+        require('sqls').on_attach(client, bufnr)
+      end
+    })
+
+    lspconf.prismals.setup({
     })
 
     require("mason").setup()

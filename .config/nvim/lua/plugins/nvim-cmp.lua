@@ -20,31 +20,31 @@ return {
   config = function()
     local cmp = require("cmp")
     local kind_icons = {
-      Text = "",
-      Method = "󰆧",
-      Function = "󰊕",
-      Constructor = "",
-      Field = "󰇽",
-      Variable = "󰂡",
-      Class = "󰠱",
-      Interface = "",
-      Module = "",
-      Property = "󰜢",
-      Unit = "",
-      Value = "󰎠",
-      Enum = "",
-      Keyword = "󰌋",
-      Snippet = "",
-      Color = "󰏘",
-      File = "󰈙",
-      Reference = "",
-      Folder = "󰉋",
-      EnumMember = "",
-      Constant = "󰏿",
-      Struct = "",
-      Event = "",
-      Operator = "󰆕",
-      TypeParameter = "󰅲",
+      -- Text = "",
+      -- Method = "󰆧",
+      -- Function = "󰊕",
+      -- Constructor = "",
+      -- Field = "󰇽",
+      -- Variable = "󰂡",
+      -- Class = "󰠱",
+      -- Interface = "",
+      -- Module = "",
+      -- Property = "󰜢",
+      -- Unit = "",
+      -- Value = "󰎠",
+      -- Enum = "",
+      -- Keyword = "󰌋",
+      -- Snippet = "",
+      -- Color = "󰏘",
+      -- File = "󰈙",
+      -- Reference = "",
+      -- Folder = "󰉋",
+      -- EnumMember = "",
+      -- Constant = "󰏿",
+      -- Struct = "",
+      -- Event = "",
+      -- Operator = "󰆕",
+      -- TypeParameter = "󰅲",
     }
 
     cmp.setup({
@@ -78,7 +78,8 @@ return {
         -- { name = 'luasnip' }, -- For luasnip users.
         -- { name = 'ultisnips' }, -- For ultisnips users.
         -- { name = 'snippy' }, -- For snippy users.
-        { name = "nvim_lsp_signature_help" }
+        { name = "nvim_lsp_signature_help" },
+        -- { name = "vim-dadbod-completion" }
       }, {
         { name = "buffer" },
       }),
@@ -130,13 +131,13 @@ return {
             vim_item.kind = (icon or "")
 
             -- Source
-            -- vim_item.menu = ({
-            -- 	buffer = "[Buffer]",
-            -- 	nvim_lsp = "[LSP]",
-            -- 	luasnip = "[LuaSnip]",
-            -- 	nvim_lua = "[Lua]",
-            -- 	latex_symbols = "[LaTeX]",
-            -- })[entry.source.name]
+            vim_item.menu = ({
+              buffer = "[Buffer]",
+              nvim_lsp = "[LSP]",
+              luasnip = "[LuaSnip]",
+              nvim_lua = "[Lua]",
+              latex_symbols = "[LaTeX]",
+            })[entry.source.name]
 
             return vim_item
           else
@@ -152,10 +153,10 @@ return {
       },
     })
 
-    -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    -- -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-    -- require("lspconfig")["html"].setup({
-    -- 	capabilities = capabilities,
-    -- })
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+    require("lspconfig")["html"].setup({
+      capabilities = capabilities,
+    })
   end,
 }
