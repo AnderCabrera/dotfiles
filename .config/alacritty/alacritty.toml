@@ -17,17 +17,17 @@ foreground = "#abb2bf"
 size = 10.0
 
 [font.bold]
-family = "mononoki Nerd Font"
+family = "ComicShannsMono Nerd Font"
 
 [font.italic]
-family = "mononoki Nerd Font"
+family = "ComicShannsMono Nerd Font"
 
 [font.normal]
-family = "mononoki Nerd Font"
+family = "ComicShannsMono Nerd Font"
 
 [window]
-opacity = 0.9
+opacity = 0.85
 
 [window.padding]
-x = 5
-y = 5
+x = 0
+y = 0
