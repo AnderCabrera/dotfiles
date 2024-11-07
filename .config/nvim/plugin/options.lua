@@ -19,6 +19,9 @@ set.clipboard = "unnamedplus"
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
+-- set dark mode to ayu
+vim.g.ayucolor = "dark"
+
 -- no show mode
 set.showmode = false
 

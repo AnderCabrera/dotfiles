@@ -13,7 +13,6 @@ return {
         "                                           ",
         "                                           ",
         "                                           ",
-        "                                           ",
 	"                _       _     _            ",
 	"               | |     | |   | |           ",
 	"  __ _ _ __ ___| |__   | |__ | |___      __",
@@ -29,7 +28,6 @@ return {
     dashboard.section.buttons.val = {
       dashboard.button("i", "  New file", ":enew <cr>"),
       dashboard.button("f", "  Find file", ":Telescope find_files<cr>"),
-      dashboard.button("w", "  Workspaces", ":Telescope workspaces<cr>"),
       dashboard.button("c", "  Sessions", require("auto-session.session-lens").search_session),
       dashboard.button("l", "󰋑  Life", ":e ~/Desktop/life/<cr>"),
       dashboard.button("r", "  Recent", ":Telescope oldfiles<cr>"),

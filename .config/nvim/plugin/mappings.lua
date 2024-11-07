@@ -56,7 +56,7 @@ map("n", "<leader>gs", ":G<CR>")
 map("n", "<leader>ut", ":UndotreeToggle<CR>")
 
 -- Quickfix
-vim.keymap.set("n", "<C-k>", ":cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", ":cprev<CR>zz")
+vim.keymap.set("n", "<C-j>", ":cnext<CR>zz")
+vim.keymap.set("n", "<C-k>", ":cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", ":lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", ":lprev<CR>zz")

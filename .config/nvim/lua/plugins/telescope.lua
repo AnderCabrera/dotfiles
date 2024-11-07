@@ -8,10 +8,8 @@ return {
     vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
     vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
     vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-    vim.keymap.set("n", "<C-k>t", builtin.colorscheme, {})
-    vim.keymap.set("n", "<C-m>s", require("auto-session.session-lens").search_session)
-    vim.keymap.set("n", "<C-m>w", ":Telescope workspaces<CR>", {})
-    vim.keymap.set("n", "<C-m>t", ":Telescope telescope-tabs list_tabs<CR>", {})
+    vim.keymap.set("n", "<leader>h", builtin.colorscheme, {})
+    vim.keymap.set("n", "<leader>ms", require("auto-session.session-lens").search_session)
 
     vim.keymap.set('n', '<leader>pws', function()
       local word = vim.fn.expand("<cword>")
