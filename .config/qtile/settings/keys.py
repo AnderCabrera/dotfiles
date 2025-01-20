@@ -4,6 +4,7 @@ from libqtile.config import Key
 from libqtile.lazy import lazy
 from .custom_functions import toggle_mic_status, window_to_previous_screen, window_to_next_screen
 
+altgr = "mod5"
 mod = "mod4"
 alt = "mod1"
 

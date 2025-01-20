@@ -28,7 +28,7 @@ blueman-applet &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 # compositor
-picom & # --config $HOME/.config/qtile/scripts/picom.conf &
+picom --config $HOME/.config/qtile/scripts/picom.conf &
 # systray battery icon
 cbatticon -n -u 5 &
 # systray volume
