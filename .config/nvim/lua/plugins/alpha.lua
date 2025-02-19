@@ -7,20 +7,26 @@ return {
     local dashboard = require("alpha.themes.dashboard")
 
     dashboard.section.header.val = {
-        "                                           ",
-        "                                           ",
-        "                                           ",
-        "                                           ",
-        "                                           ",
-        "                                           ",
-	"                _       _     _            ",
-	"               | |     | |   | |           ",
-	"  __ _ _ __ ___| |__   | |__ | |___      __",
-	" / _` | '__/ __| '_ \\  | '_ \\| __\\ \\ /\\ / /",
-	"| (_| | | | (__| | | | | |_) | |_ \\ V  V / ",
-	" \\__,_|_|  \\___|_| |_| |_.__/ \\__| \\_/\\_/  ",
-	"                                           ",
-	"                                           "
+      "                                           ",
+      "                                           ",
+      "                                           ",
+      "                                           ",
+      "                                           ",
+      "                                           ",
+      "                                           ",
+      "                                           ",
+      "                                           ",
+      "                                           ",
+      "                                           ",
+      "                                           ",
+      "                _       _     _            ",
+      "               | |     | |   | |           ",
+      "  __ _ _ __ ___| |__   | |__ | |___      __",
+      " / _` | '__/ __| '_ \\  | '_ \\| __\\ \\ /\\ / /",
+      "| (_| | | | (__| | | | | |_) | |_ \\ V  V / ",
+      " \\__,_|_|  \\___|_| |_| |_.__/ \\__| \\_/\\_/  ",
+      "                                           ",
+      "                                           "
     }
 
     dashboard.section.header.opts.hl = "Normal"
@@ -28,8 +34,6 @@ return {
     dashboard.section.buttons.val = {
       dashboard.button("i", "  New file", ":enew <cr>"),
       dashboard.button("f", "  Find file", ":Telescope find_files<cr>"),
-      dashboard.button("c", "  Sessions", require("auto-session.session-lens").search_session),
-      dashboard.button("l", "󰋑  Life", ":e ~/Desktop/life/<cr>"),
       dashboard.button("r", "  Recent", ":Telescope oldfiles<cr>"),
       dashboard.button("u", "  Update Plugins", ":Lazy update<cr>"),
       dashboard.button("s", "  Settings", ":e $MYVIMRC | :cd %:p:h<cr>"),

@@ -95,7 +95,7 @@ return {
 
     lspconf.emmet_language_server.setup({})
 
-    lspconf.tsserver.setup({
+    lspconf.ts_ls.setup({
       cmd = { "typescript-language-server", "--stdio" },
       name = "tsserver",
       root_dir = lspconf.util.root_pattern("package.json"),
@@ -229,7 +229,7 @@ return {
 
     require("mason").setup()
     require("mason-lspconfig").setup({
-      ensure_installed = { "tsserver", "lua_ls", "clangd" },
+      ensure_installed = { "ts_ls", "lua_ls", "clangd" },
     })
   end,
 }
