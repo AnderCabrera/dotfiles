@@ -1,29 +1,29 @@
 return {
   {
-    "navarasu/onedark.nvim",
+    'navarasu/onedark.nvim',
     config = function()
-      require("onedark").setup({
-        style = "darker",
+      require('onedark').setup {
+        style = 'darker',
         transparent = false,
-      })
-    end
+      }
+    end,
   },
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
+    'rose-pine/neovim',
+    name = 'rose-pine',
     config = function()
-      local rosepine = require("rose-pine")
+      local rosepine = require 'rose-pine'
 
-      rosepine.setup({
-        variant = "auto",      -- auto, main, moon, or dawn
-        dark_variant = "main", -- main, moon, or dawn
+      rosepine.setup {
+        variant = 'auto', -- auto, main, moon, or dawn
+        dark_variant = 'main', -- main, moon, or dawn
         dim_inactive_windows = true,
         extend_background_behind_borders = true,
 
         enable = {
           terminal = false,
           legacy_highlights = false, -- Improve compatibility for previous versions of Neovim
-          migrations = true,         -- Handle deprecated options automatically
+          migrations = true, -- Handle deprecated options automatically
         },
 
         styles = {
@@ -31,8 +31,8 @@ return {
           italic = false,
           transparency = false,
         },
-      })
-    end
+      }
+    end,
   },
   {
     'uloco/bluloco.nvim',
@@ -43,11 +43,11 @@ return {
       -- your optional config goes here, see below.
     end,
   },
-  "folke/tokyonight.nvim",
-  "ellisonleao/gruvbox.nvim",
-  "shaunsingh/nord.nvim",
-  "Mofiqul/vscode.nvim",
-  "marko-cerovac/material.nvim",
-  "ayu-theme/ayu-vim",
-  "rebelot/kanagawa.nvim"
+  'folke/tokyonight.nvim',
+  'ellisonleao/gruvbox.nvim',
+  'shaunsingh/nord.nvim',
+  'Mofiqul/vscode.nvim',
+  'marko-cerovac/material.nvim',
+  'ayu-theme/ayu-vim',
+  'rebelot/kanagawa.nvim',
 }

@@ -1,8 +1,8 @@
 return {
-  "j-hui/fidget.nvim",
+  'j-hui/fidget.nvim',
   opts = {
     integration = {
-      ["nvim-tree"] = {
+      ['nvim-tree'] = {
         enable = true,
       },
     },

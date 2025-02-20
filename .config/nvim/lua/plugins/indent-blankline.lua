@@ -1,19 +1,17 @@
 return {
-  "lukas-reineke/indent-blankline.nvim",
-  main = "ibl",
+  'lukas-reineke/indent-blankline.nvim',
+  main = 'ibl',
   ---@module "ibl"
   ---@type ibl.config
-  opts = {
-
-  },
+  opts = {},
   config = function()
-    require("ibl").setup({
+    require('ibl').setup {
       enabled = true,
-      indent = { char = "|" },
+      indent = { char = '|' },
       scope = {
         show_start = false,
         show_end = true,
-      }
-    })
-  end
+      },
+    }
+  end,
 }

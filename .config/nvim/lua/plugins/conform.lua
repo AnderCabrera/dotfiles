@@ -1,14 +1,14 @@
 return { -- Autoformat
-  "stevearc/conform.nvim",
+  'stevearc/conform.nvim',
   lazy = false,
   keys = {
     {
-      "<M-S-f>",
+      '<M-S-f>',
       function()
-        require("conform").format({ async = true, lsp_fallback = true })
+        require('conform').format { async = true, lsp_fallback = true }
       end,
-      mode = "",
-      desc = "[F]ormat buffer",
+      mode = '',
+      desc = '[F]ormat buffer',
     },
   },
   opts = {
@@ -24,17 +24,17 @@ return { -- Autoformat
     -- 	}
     -- end,
     formatters_by_ft = {
-      lua = { "stylua" },
-      python = { "autopep8", "isort", "black" },
-      javascript = { "prettier", stop_after_first = true },
-      typescript = { "prettier", stop_after_first = true },
-      javascriptreact = { "prettier", stop_after_first = true },
-      typescriptreact = { "prettier", stop_after_first = true },
-      html = { "prettier", stop_after_first = true },
-      css = { "prettier", stop_after_first = true },
-      scss = { "prettier", stop_after_first = true },
-      json = { "prettier", stop_after_first = true },
-      yaml = { "prettier", stop_after_first = true },
+      lua = { 'stylua' },
+      python = { 'autopep8', 'isort', 'black' },
+      javascript = { 'prettier', stop_after_first = true },
+      typescript = { 'prettier', stop_after_first = true },
+      javascriptreact = { 'prettier', stop_after_first = true },
+      typescriptreact = { 'prettier', stop_after_first = true },
+      html = { 'prettier', stop_after_first = true },
+      css = { 'prettier', stop_after_first = true },
+      scss = { 'prettier', stop_after_first = true },
+      json = { 'prettier', stop_after_first = true },
+      yaml = { 'prettier', stop_after_first = true },
       -- rust = { "rustfmt" },
       -- go = { "gofmt", "goimports" },
       -- sh = { "shfmt" },

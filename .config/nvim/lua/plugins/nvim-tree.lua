@@ -1,8 +1,8 @@
 return {
-  "nvim-tree/nvim-tree.lua",
+  'nvim-tree/nvim-tree.lua',
   config = function()
-    require("nvim-tree").setup({
-      on_attach = "default",
+    require('nvim-tree').setup {
+      on_attach = 'default',
       hijack_cursor = false,
       auto_reload_on_write = true,
       disable_netrw = false,
@@ -15,7 +15,7 @@ return {
       respect_buf_cwd = false,
       select_prompts = false,
       sort = {
-        sorter = "name",
+        sorter = 'name',
         folders_first = true,
         files_first = false,
       },
@@ -23,18 +23,18 @@ return {
         centralize_selection = false,
         cursorline = true,
         debounce_delay = 15,
-        side = "left",
+        side = 'left',
         preserve_window_proportions = false,
         number = false,
         relativenumber = false,
-        signcolumn = "yes",
+        signcolumn = 'yes',
         width = 30,
         float = {
           enable = false,
           quit_on_focus_loss = true,
           open_win_config = {
-            relative = "editor",
-            border = "rounded",
+            relative = 'editor',
+            border = 'rounded',
             width = 30,
             height = 30,
             row = 1,
@@ -46,25 +46,25 @@ return {
         add_trailing = false,
         group_empty = false,
         full_name = false,
-        root_folder_label = ":~:s?$?/..?",
+        root_folder_label = ':~:s?$?/..?',
         indent_width = 2,
-        special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+        special_files = { 'Cargo.toml', 'Makefile', 'README.md', 'readme.md' },
         symlink_destination = true,
-        highlight_git = "none",
-        highlight_diagnostics = "none",
-        highlight_opened_files = "none",
-        highlight_modified = "none",
-        highlight_bookmarks = "none",
-        highlight_clipboard = "name",
+        highlight_git = 'none',
+        highlight_diagnostics = 'none',
+        highlight_opened_files = 'none',
+        highlight_modified = 'none',
+        highlight_bookmarks = 'none',
+        highlight_clipboard = 'name',
         indent_markers = {
           enable = false,
           inline_arrows = true,
           icons = {
-            corner = "└",
-            edge = "│",
-            item = "│",
-            bottom = "─",
-            none = " ",
+            corner = '└',
+            edge = '│',
+            item = '│',
+            bottom = '─',
+            none = ' ',
           },
         },
         icons = {
@@ -78,12 +78,12 @@ return {
               color = true,
             },
           },
-          git_placement = "before",
-          modified_placement = "after",
-          diagnostics_placement = "signcolumn",
-          bookmarks_placement = "signcolumn",
-          padding = " ",
-          symlink_arrow = " ➛ ",
+          git_placement = 'before',
+          modified_placement = 'after',
+          diagnostics_placement = 'signcolumn',
+          bookmarks_placement = 'signcolumn',
+          padding = ' ',
+          symlink_arrow = ' ➛ ',
           show = {
             file = true,
             folder = true,
@@ -94,28 +94,28 @@ return {
             bookmarks = true,
           },
           glyphs = {
-            default = "",
-            symlink = "",
-            bookmark = "󰆤",
-            modified = "[+]",
+            default = '',
+            symlink = '',
+            bookmark = '󰆤',
+            modified = '[+]',
             folder = {
-              arrow_closed = "",
-              arrow_open = "",
-              default = "",
-              open = "",
-              empty = "",
-              empty_open = "",
-              symlink = "",
-              symlink_open = "",
+              arrow_closed = '',
+              arrow_open = '',
+              default = '',
+              open = '',
+              empty = '',
+              empty_open = '',
+              symlink = '',
+              symlink_open = '',
             },
             git = {
-              unstaged = "✗",
-              staged = "✓",
-              unmerged = "",
-              renamed = "➜",
-              untracked = "★",
-              deleted = "",
-              ignored = "◌",
+              unstaged = '✗',
+              staged = '✓',
+              unmerged = '',
+              renamed = '➜',
+              untracked = '★',
+              deleted = '',
+              ignored = '◌',
             },
           },
         },
@@ -133,7 +133,7 @@ return {
         exclude = false,
       },
       system_open = {
-        cmd = "",
+        cmd = '',
         args = {},
       },
       git = {
@@ -154,10 +154,10 @@ return {
           max = vim.diagnostic.severity.ERROR,
         },
         icons = {
-          hint = "󰌶",
-          info = "",
-          warning = "",
-          error = "",
+          hint = '󰌶',
+          info = '',
+          warning = '',
+          error = '',
         },
       },
       modified = {
@@ -176,7 +176,7 @@ return {
         exclude = {},
       },
       live_filter = {
-        prefix = "[FILTER]: ",
+        prefix = '[FILTER]: ',
         always_show_folders = true,
       },
       filesystem_watchers = {
@@ -199,9 +199,9 @@ return {
           open_win_config = {
             col = 1,
             row = 1,
-            relative = "cursor",
-            border = "shadow",
-            style = "minimal",
+            relative = 'cursor',
+            border = 'shadow',
+            style = 'minimal',
           },
         },
         open_file = {
@@ -210,11 +210,11 @@ return {
           resize_window = true,
           window_picker = {
             enable = true,
-            picker = "default",
-            chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+            picker = 'default',
+            chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890',
             exclude = {
-              filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
-              buftype = { "nofile", "terminal", "help" },
+              filetype = { 'notify', 'packer', 'qf', 'diff', 'fugitive', 'fugitiveblame' },
+              buftype = { 'nofile', 'terminal', 'help' },
             },
           },
         },
@@ -223,7 +223,7 @@ return {
         },
       },
       trash = {
-        cmd = "gio trash",
+        cmd = 'gio trash',
       },
       tab = {
         sync = {
@@ -237,7 +237,7 @@ return {
         absolute_path = true,
       },
       help = {
-        sort_by = "key",
+        sort_by = 'key',
       },
       ui = {
         confirm = {
@@ -261,6 +261,6 @@ return {
           watcher = false,
         },
       },
-    })
+    }
   end,
 }
