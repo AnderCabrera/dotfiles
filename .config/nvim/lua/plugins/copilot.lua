@@ -12,7 +12,7 @@ return {
           jump_next = ']]',
           accept = '<CR>',
           refresh = 'gr',
-          open = '<M-CR>',
+          open = '<C-CR>',
         },
         layout = {
           position = 'right', -- | top | left | right
@@ -25,7 +25,7 @@ return {
         hide_during_completion = true,
         debounce = 75,
         keymap = {
-          accept = '<M-l>',
+          accept = '<C-a>',
           accept_word = false,
           accept_line = false,
           next = '<M-}>',
@@ -43,7 +43,7 @@ return {
         svn = false,
         cvs = false,
         javascript = false,
-        typescript = false,
+        typescript = true,
         c = false,
         ['.'] = false,
       },

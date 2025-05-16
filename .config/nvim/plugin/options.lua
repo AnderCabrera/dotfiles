@@ -2,7 +2,7 @@
 vim.opt.scrolloff = 10
 
 -- Decrease update time
--- vim.opt.updatetime = 250
+vim.opt.updatetime = 250
 
 -- Decrease mapped sequence wait time
 -- vim.opt.timeoutlen = 1000
@@ -41,9 +41,9 @@ vim.opt.mouse = 'a'
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
+-- vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
-end)
+-- end)
 
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true

@@ -16,7 +16,7 @@ map('v', '>', '>gv')
 map('v', '<', '<gv')
 
 -- NvimTree
-map('n', '<leader>c', vim.cmd.NvimTreeToggle)
+map('n', '<leader>c', ':NvimTreeToggle<CR>')
 
 -- Buffer
 map('n', '<leader>bn', ':bnext<CR>')
@@ -28,8 +28,8 @@ map('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 map('v', '<leader>r', '"hy:%s/<C-r>h/<C-r>h/g<left><left>')
 
 -- Move selected lines up and down
-map('v', '<C-S-j>', ":m '>+1<CR>gv=gv")
-map('v', '<C-S-k>', ":m '<-2<CR>gv=gv")
+map('v', '<C-S-Up>', ":m '<-2<CR>gv=gv")
+map('v', '<C-S-Down>', ":m '>+1<CR>gv=gv")
 
 -- Terminal
 map('n', '<leader>t', ':belowright split +resize-20 | terminal<CR>')
@@ -56,11 +56,15 @@ map('n', '<leader>gs', ':G<CR>')
 map('n', '<leader>ut', ':UndotreeToggle<CR>')
 
 -- Quickfix
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('n', '<C-j>', ':cnext<CR>zz')
 vim.keymap.set('n', '<C-k>', ':cprev<CR>zz')
-vim.keymap.set('n', '<leader>k', ':lnext<CR>zz')
-vim.keymap.set('n', '<leader>j', ':lprev<CR>zz')
+vim.keymap.set('n', '<leader>j', ':lnext<CR>zz')
+vim.keymap.set('n', '<leader>k', ':lprev<CR>zz')
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+map('i', '<C-c>', '<Esc>')
+
