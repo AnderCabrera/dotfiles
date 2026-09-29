@@ -1,0 +1,58 @@
+# Colors (One Dark)
+
+# Default colors
+[colors.primary]
+background = '#090E13'
+foreground = '#abb2bf'
+
+# Normal colors
+[colors.normal]
+black   = '#1e2127'
+red     = '#e06c75'
+green   = '#98c379'
+yellow  = '#d19a66'
+blue    = '#61afef'
+magenta = '#c678dd'
+cyan    = '#56b6c2'
+white   = '#abb2bf'
+
+# Bright colors
+[colors.bright]
+black   = '#5c6370'
+red     = '#e06c75'
+green   = '#98c379'
+yellow  = '#d19a66'
+blue    = '#61afef'
+magenta = '#c678dd'
+cyan    = '#56b6c2'
+white   = '#ffffff'
+
+
+[font]
+size = 10.0
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+
+# [terminal.shell]
+# program = "/opt/homebrew/bin/fish"
+# args = []
+
+[window.padding]
+x = 0
+y = 0
+
+[window]
+opacity = 0.9
+
+[keyboard]
+bindings = [
+  { key = "Back", mods = "Control", chars = "\u001b[127;5u" },
+  { key = "Return", mods = "Shift", chars = "\u001B\r" },
+]

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+options="  Power Off
+  Restart
+  Suspend
+󰍃  Log Out
+  Lock"
+
+chosen=$(printf "%s\n" "$options" | rofi -dmenu -i -no-show-icons -theme-str '@import "power.rasi"')
+
+[ -z "$chosen" ] && exit 0
+
+case "$chosen" in
+  "  Power Off") systemctl poweroff ;;
+  "  Restart") systemctl reboot ;;
+  "  Suspend") systemctl suspend ;;
+  "󰍃  Log Out") qtile cmd-obj -o cmd -f shutdown ;;
+  "  Lock") betterlockscreen -l ;;
+esac
